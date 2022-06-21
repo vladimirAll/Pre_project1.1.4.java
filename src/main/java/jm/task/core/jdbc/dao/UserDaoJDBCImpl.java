@@ -92,23 +92,15 @@ public class UserDaoJDBCImpl implements UserDao {
     public List<User> getAllUsers () {
         List <User> list = new ArrayList<>();
             try (Statement statement = connection.createStatement()) {
-                connection.setAutoCommit(false);
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM user");
                 while (resultSet.next()) {
                     User use = new User(resultSet.getString(2), resultSet.getString(3), resultSet.getByte(4));
                     list.add(use);
                     System.out.println(use.toString());
                 }
-                connection.commit();
-            } catch (SQLException e) {
-                try {
-                    connection.rollback();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
-                e.printStackTrace();
+            } catch (SQLException ex) {
+                    ex.printStackTrace();
             }
-
         return list;
     }
 
