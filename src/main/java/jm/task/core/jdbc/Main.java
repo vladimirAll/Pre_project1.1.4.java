@@ -14,14 +14,14 @@ public class Main {
             userService.saveUser("Serj", "Tankian", (byte) 54);
             userService.saveUser("Till", "Lindemann", (byte) 59);
             userService.saveUser("James", "Hetfield", (byte) 58);
-            userService.saveUser("Axl", "Rose", (byte) 74);
+            userService.saveUser("Axl", "Rose", (byte) 60);
         // Удаление пользователя по Id
-            userService.removeUserById(4);
+            userService.removeUserById(1);
         // Получение пользователей из базы данных
             userService.getAllUsers();
         // Очистка таблицы
             userService.cleanUsersTable();
         //Удаление таблицы
-            userService.dropUsersTable();
+           userService.dropUsersTable();
     }
 }
